@@ -5,6 +5,10 @@ const cat = require('./cat');
 // Output a prompt
 process.stdout.write('prompt > ');
 
+const done=(output)=>{
+
+}
+
 // The stdin 'data' event fires after a user types in a line
 process.stdin.on('data', (data) => {
   const cmd = data.toString().trim(); // remove the newLine
@@ -14,12 +18,20 @@ process.stdin.on('data', (data) => {
 
   if (catter[0] === 'cat') {
     cat(catter[1]);
-  } else if (cmd === 'pwd') {
+  } 
+  if (catter[0] === 'curl') {
+    curl(catter[1]);
+    
+  } if (cmd === 'pwd') {
     pwd();
-  } else if (cmd === 'ls') {
+  } if (cmd === 'ls') {
     ls();
-  } else {
+  } 
+  
+  else {
     process.stdout.write('You typed: ' + cmd);
     process.stdout.write('\nprompt > ');
   }
 });
+
+
